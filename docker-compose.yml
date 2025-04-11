@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    volumes:
+      - ./src:/app
+    ports:
+      - 5000:5000

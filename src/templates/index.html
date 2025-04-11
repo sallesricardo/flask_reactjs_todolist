@@ -1,0 +1,103 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .form-container {
+            margin-bottom: 20px;
+            display: flex;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .concluida {
+            text-decoration: line-through;
+            color: #888;
+        }
+        .acoes {
+            display: flex;
+            gap: 5px;
+        }
+        .acoes a {
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+        }
+        .completar {
+            background-color: #2196F3;
+        }
+        .excluir {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+
+    <div class="form-container">
+        <form action="/adicionar" method="post">
+            <input type="text" name="titulo" placeholder="Adicionar nova tarefa" required>
+            <button type="submit">Adicionar</button>
+        </form>
+    </div>
+
+    <ul>
+        {% for tarefa in tarefas %}
+            <li>
+                <span class="{% if tarefa.completa %}concluida{% endif %}">
+                    {{ tarefa.titulo }}
+                </span>
+                <div class="acoes">
+                    <a href="{{ url_for('completar', id=tarefa.id) }}" class="completar">
+                        {% if tarefa.completa %}Desfazer{% else %}Concluir{% endif %}
+                    </a>
+                    <a href="{{ url_for('excluir', id=tarefa.id) }}" class="excluir">Excluir</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
