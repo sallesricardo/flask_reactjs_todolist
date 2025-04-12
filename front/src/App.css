@@ -1,0 +1,117 @@
+/* App.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 0;
+}
+
+.form-tarefa {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.lista-tarefas {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-tarefas li {
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.lista-tarefas li:hover {
+  background-color: #f0f0f0;
+}
+
+.lista-tarefas li span {
+  cursor: pointer;
+  flex: 1;
+}
+
+.concluida span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-concluir {
+  background-color: #2196F3;
+  border-radius: 4px;
+}
+
+.btn-concluir:hover {
+  background-color: #0b7dda;
+}
+
+.btn-excluir {
+  background-color: #f44336;
+  border-radius: 4px;
+}
+
+.btn-excluir:hover {
+  background-color: #d32f2f;
+}
+
+.erro {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.carregando, .sem-tarefas {
+  text-align: center;
+  padding: 20px;
+  color: #757575;
+}
